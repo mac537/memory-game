@@ -1,6 +1,128 @@
-$body-color: slateblue;
+@import "./fontawesome/scss/fontawesome.scss";
+@import "./fontawesome/scss/brands.scss";
+@import "./fontawesome/scss/solid.scss";
+
+$light-blue: #6dd5ed;
+$dark-blue: #2193b0;
+$white: #FFF;
+
+@mixin animation($type) {
+  animation: .6s $type ease-in-out;
+  animation-delay: .4s;
+}
+
+html, body{
+  margin: 0;
+}
 
 body {
-  color: $body-color;
   font-family: sans-serif;
+  background: $dark-blue;
+  background: linear-gradient(to right, $light-blue, $dark-blue);
+}
+
+#container{
+  max-width: 862px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.memory-cards{
+  display: grid;
+  grid-template-columns: repeat(2 ,1fr);
+  grid-gap: 20px;
+  transform-style: preserve-3d;
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: repeat(4 ,1fr);
+  }
+  @media only screen and (min-width: 1024px) {
+    grid-template-columns: repeat(6 ,1fr);
+  }
+  &--paused{
+    pointer-events: none;
+  }
+}
+
+
+.memory-card{
+  height: 150px;
+  width: 100%;
+  cursor: pointer;
+  perspective: 500px;
+  &:active {
+    transform: scale(0.95);
+    transition: transform .2s;
+  }
+
+  &__inner{
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: .4s ease-in-out;
+    border-radius: 5px;
+    background-color: $white;
+    // border: 2px solid $dark-blue;
+  }
+  &__back, &__front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__front{
+    transform: rotateY(180deg);
+  }
+
+  &__back{
+    transform: rotateX(0);
+  }
+  &--flipped {
+    pointer-events: none;
+    .memory-card__inner{
+      transform: rotateY(180deg);
+    }
+  }
+
+  &--matched{
+    pointer-events: none;
+    @include animation(matchAnimScale);
+    .memory-card__inner{
+      transform: rotateY(180deg);
+      @include animation(matchAnimBackground);
+    }
+  }
+
+  &__timer {
+    color: $dark-blue;
+    margin-bottom: 20px;
+
+    &-minutes,
+    &-seconds {
+      display: inline-block;
+      font-size: 20px;
+    }
+  }
+}
+
+@keyframes matchAnimScale {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes matchAnimBackground {
+  0% {
+    background: $light-blue;
+  }
+  100% {
+    background: $white;
+  }
 }

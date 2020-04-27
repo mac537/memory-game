@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "color": "#42B883",
+    "name": "vuejs"
+  },
+  {
+    "id": 2,
+    "color": "#b52e31",
+    "name": "angular"
+  },
+  { 
+    "id": 3,
+    "color": "#00d8ff",
+    "name": "react"
+  },
+  {
+    "id": 4,
+    "color": "#2161AF",
+    "name": "css3-alt"
+  },
+  {
+    "id": 5,
+    "color": "#e34f26",
+    "name": "html5"
+  },
+  {
+    "id": 6,
+    "color": "#BF4181",
+    "name": "sass"
+  },
+  {
+    "id": 7,
+    "color": "#F34D27",
+    "name": "git"
+  },
+  {
+    "id": 8,
+    "color": "#EA6C00",
+    "name": "sketch"
+  },
+  {
+    "id": 9,
+    "color": "#F8DE1F",
+    "name": "js"
+  },
+  {
+    "id": 10,
+    "color": "#FF3366",
+    "name": "invision"
+
+  },
+  {
+    "id": 11,
+    "color": "#43853D",
+    "name": "node"
+
+  },
+  {
+    "id": 12,
+    "color": "#FBA919",
+    "name": "grunt"
+  }
+]
